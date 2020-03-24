@@ -11,17 +11,34 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shopping list overview"
+        android:text="Shopping list overview\ncurrent needed items:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.564" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/shopping_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00FF0000"
+            android:cacheColorHint="#00FF0000"
+            tools:listitem="@android:layout/simple_list_item_1">
+
+        </ListView>
+    </LinearLayout>
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_weight="1"
+        android:text="Edit shopping items" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
