@@ -44,7 +44,8 @@ public class CustomShoppingListAdaptor extends BaseAdapter implements ListAdapte
         }
 
         CheckedTextView itemText = (CheckedTextView) view.findViewById(R.id.checkedListItemText);
-        itemText.setText(list.get(position).name);
+        itemText.setText(list.get(position).getName());
+        itemText.setChecked(list.get(position).isChecked());
 
         //Delete button listener handling
         Button deleteButton = (Button)view.findViewById(R.id.listItemDeleteButton);
