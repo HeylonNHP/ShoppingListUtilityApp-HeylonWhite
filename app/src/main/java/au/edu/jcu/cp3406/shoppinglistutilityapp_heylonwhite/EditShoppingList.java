@@ -2,6 +2,7 @@ package au.edu.jcu.cp3406.shoppinglistutilityapp_heylonwhite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,7 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class EditShoppingList extends AppCompatActivity {
-    ArrayList<String> list = new ArrayList<>();
+    ArrayList<CheckedShoppingListItem> list = new ArrayList<>();
     CustomShoppingListAdaptor adapter;
     EditText input;
 
@@ -33,7 +34,12 @@ public class EditShoppingList extends AppCompatActivity {
     }
 
     public void addItemClick(View view) {
-        list.add(input.getText().toString());
+        list.add(new CheckedShoppingListItem(input.getText().toString()));
         adapter.notifyDataSetChanged();
+    }
+
+    public void gotoMain(View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

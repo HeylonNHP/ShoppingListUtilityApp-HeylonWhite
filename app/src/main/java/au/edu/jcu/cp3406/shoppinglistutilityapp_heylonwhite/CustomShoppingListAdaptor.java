@@ -12,10 +12,10 @@ import android.widget.ListAdapter;
 import java.util.ArrayList;
 
 public class CustomShoppingListAdaptor extends BaseAdapter implements ListAdapter {
-    private ArrayList<String> list = new ArrayList<String>();
+    private ArrayList<CheckedShoppingListItem> list = new ArrayList<>();
     private Context context;
 
-    public CustomShoppingListAdaptor(ArrayList<String> list, Context context){
+    public CustomShoppingListAdaptor(ArrayList<CheckedShoppingListItem> list, Context context){
         this.list = list;
         this.context = context;
     }
@@ -44,7 +44,7 @@ public class CustomShoppingListAdaptor extends BaseAdapter implements ListAdapte
         }
 
         CheckedTextView itemText = (CheckedTextView) view.findViewById(R.id.checkedListItemText);
-        itemText.setText(list.get(position));
+        itemText.setText(list.get(position).name);
 
         //Delete button listener handling
         Button deleteButton = (Button)view.findViewById(R.id.listItemDeleteButton);
@@ -62,6 +62,7 @@ public class CustomShoppingListAdaptor extends BaseAdapter implements ListAdapte
             @Override
             public void onClick(View v) {
                 ((CheckedTextView) v).toggle();
+                list.get(position).setChecked(((CheckedTextView) v).isChecked());
             }
         });
 
