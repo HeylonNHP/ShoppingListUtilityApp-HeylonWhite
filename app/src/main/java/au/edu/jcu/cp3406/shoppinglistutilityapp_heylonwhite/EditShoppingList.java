@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class EditShoppingList extends AppCompatActivity {
     ArrayList<String> list = new ArrayList<>();
-    ArrayAdapter adapter;
+    CustomShoppingListAdaptor adapter;
     EditText input;
 
 
@@ -23,10 +23,12 @@ public class EditShoppingList extends AppCompatActivity {
 
         input = (EditText)findViewById(R.id.textView3);
 
+        adapter = new CustomShoppingListAdaptor(list,this);
 
-        adapter = new ArrayAdapter<String>(this,R.layout.main_listview, R.id.textView, list );
+        //adapter = new ArrayAdapter<String>(this,R.layout.main_listview, R.id.textView, list );
         ListView listView = (ListView)findViewById(R.id.shoppingListView);
         listView.setAdapter(adapter);
+        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
     }
 
