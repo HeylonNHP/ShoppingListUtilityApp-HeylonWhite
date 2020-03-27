@@ -30,4 +30,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,EditShoppingList.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        
+    }
 }

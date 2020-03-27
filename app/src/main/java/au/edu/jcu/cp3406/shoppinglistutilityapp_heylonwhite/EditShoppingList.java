@@ -22,6 +22,16 @@ public class EditShoppingList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_shopping_list);
 
+        //Restore state
+        if(null != savedInstanceState){
+            String[] names = savedInstanceState.getStringArray("names");
+            boolean[] states = savedInstanceState.getBooleanArray("states");
+
+            for(int i = 0; i < names.length; ++i){
+                list.add(new CheckedShoppingListItem(names[i],states[i]));
+            }
+        }
+
         input = (EditText)findViewById(R.id.textView3);
 
         adapter = new CustomShoppingListAdaptor(list,this);
@@ -41,5 +51,28 @@ public class EditShoppingList extends AppCompatActivity {
     public void gotoMain(View view) {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Boolean> states = new ArrayList<>();
+
+        for (CheckedShoppingListItem item: list) {
+            names.add(item.getName());
+            states.add(item.isChecked());
+        }
+
+        outState.putStringArray("names",names.toArray(new String[names.size()]));
+
+        boolean[] boolArray = new boolean[states.size()];
+
+        for(int i = 0; i < states.size(); ++i){
+            boolArray[i] = states.get(i);
+        }
+
+        outState.putBooleanArray("states", boolArray);
     }
 }

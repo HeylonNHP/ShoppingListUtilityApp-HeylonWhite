@@ -9,6 +9,11 @@ public class CheckedShoppingListItem {
         this.name = name;
     }
 
+    public CheckedShoppingListItem(String name, boolean state){
+        this(name);
+        this.checked = state;
+    }
+
     public boolean isChecked() {
         return checked;
     }
