@@ -3,6 +3,7 @@ package au.edu.jcu.cp3406.shoppinglistutilityapp_heylonwhite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,7 +24,15 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.shopping_list_view);
         listView.setAdapter(adapter);
 
-        list.add("shit");
+        ArrayList<CheckedShoppingListItem> items = Preferences.loadShoppingList(getSharedPreferences(Preferences.preferencesName,MODE_PRIVATE));
+
+        if(null != items){
+            for (CheckedShoppingListItem item: items) {
+                if(item.isChecked()){
+                    list.add(item.getName());
+                }
+            }
+        }
     }
 
     public void editShoppingListClick(View view){
