@@ -10,7 +10,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="1"
+        android:shadowDy="1"
+
+        android:shadowRadius="2"
         android:text="Test list item"
-        android:textColor="#F44336"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp" />
 </LinearLayout>

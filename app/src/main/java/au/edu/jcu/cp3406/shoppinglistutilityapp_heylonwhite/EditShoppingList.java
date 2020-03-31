@@ -48,6 +48,7 @@ public class EditShoppingList extends AppCompatActivity {
 
     public void addItemClick(View view) {
         list.add(new CheckedShoppingListItem(input.getText().toString()));
+        input.setText("");
         adapter.notifyDataSetChanged();
     }
 
