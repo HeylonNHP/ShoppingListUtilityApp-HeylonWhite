@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Edit shopping list\nCheck items which are in need"
+        android:text="@string/edit_shopping_list_title"
         android:textColor="@color/colorPrimary" />
 
     <LinearLayout
@@ -26,7 +26,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Add Item"/>
+            android:hint="@string/edit_shopping_list_add_item_hint"
+            android:importantForAutofill="no"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/button"
@@ -35,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="addItemClick"
-            android:text="Add" />
+            android:text="@string/edit_shopping_list_add_button" />
     </LinearLayout>
 
     <LinearLayout

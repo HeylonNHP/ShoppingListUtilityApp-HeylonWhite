@@ -22,7 +22,8 @@ public class EditShoppingList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_shopping_list);
-        //Restore state
+
+        //Restore activity state
         SharedPreferences sharedPreferences = getSharedPreferences(Preferences.preferencesName, MODE_PRIVATE);
         ArrayList<CheckedShoppingListItem> loadedList = Preferences.loadShoppingList(sharedPreferences);
         if(null != savedInstanceState){
@@ -36,24 +37,24 @@ public class EditShoppingList extends AppCompatActivity {
             list = loadedList;
         }
 
+        //Initialise components
         input = (EditText)findViewById(R.id.textView3);
 
         adapter = new CustomShoppingListAdaptor(list,this);
-
-        //adapter = new ArrayAdapter<String>(this,R.layout.main_listview, R.id.textView, list );
         ListView listView = (ListView)findViewById(R.id.shoppingListView);
         listView.setAdapter(adapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
     }
 
     public void addItemClick(View view) {
+        //Add new item to shopping list
         list.add(new CheckedShoppingListItem(input.getText().toString()));
         input.setText("");
         adapter.notifyDataSetChanged();
     }
 
     public void gotoMain(View view) {
-        //Save shopping list
+        //Save shopping list and return to main screen
         SharedPreferences sharedPreferences = getSharedPreferences(Preferences.preferencesName, MODE_PRIVATE);
         Preferences.saveShoppingList(list,sharedPreferences);
 
@@ -62,9 +63,17 @@ public class EditShoppingList extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        //If user presses the back button go back to main screen
+        super.onBackPressed();
+        gotoMain(null);
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
+        //Save activity state
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Boolean> states = new ArrayList<>();
 

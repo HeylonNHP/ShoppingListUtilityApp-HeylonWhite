@@ -12,6 +12,7 @@ public class Preferences {
     public static final String preferencesName = "ShoppingListPrefs";
     public static final String shoppingListSettingName = "shoppingItems";
     public static void saveShoppingList(ArrayList<CheckedShoppingListItem> items, SharedPreferences sharedPreferences){
+        //Save shopping list to sharedPreferences using a JSON string
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         Gson gson = new Gson();
@@ -22,6 +23,7 @@ public class Preferences {
     }
 
     public static ArrayList<CheckedShoppingListItem> loadShoppingList(SharedPreferences sharedPreferences){
+        //Restore shopping list from JSON string saved within sharedPreferences
         Gson gson = new Gson();
         String json = sharedPreferences.getString(shoppingListSettingName, null);
         Type type = new TypeToken<ArrayList<CheckedShoppingListItem>>() {}.getType();
