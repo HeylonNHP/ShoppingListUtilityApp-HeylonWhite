@@ -15,7 +15,7 @@
         android:shadowDy="1"
 
         android:shadowRadius="2"
-        android:text="Test list item"
+        android:text="@string/example_list_item_text"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp" />
 </LinearLayout>

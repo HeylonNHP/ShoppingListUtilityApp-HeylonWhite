@@ -11,7 +11,8 @@
         android:checkMark="?android:attr/listChoiceIndicatorMultiple"
         android:checked="false"
         android:clickable="true"
-        android:text="checkedListItemText"
+        android:focusable="true"
+        android:text="@string/example_list_item_text"
         android:visibility="visible" />
 
     <Button
@@ -20,5 +21,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Delete" />
+        android:text="@string/list_item_delete_button" />
 </LinearLayout>

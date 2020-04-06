@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shopping list overview\ncurrent needed items:"
+        android:text="@string/main_title_text"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,6 +44,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="editShoppingListClick"
-        android:text="Edit shopping items" />
+        android:text="@string/main_edit_shopping_items_button" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

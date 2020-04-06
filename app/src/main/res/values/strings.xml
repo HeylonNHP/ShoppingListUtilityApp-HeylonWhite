@@ -5,4 +5,12 @@
     <string name="edit_shopping_list_title">Edit shopping list\nCheck items which are in need</string>
     <string name="edit_shopping_list_add_item_hint">Add item</string>
     <string name="edit_shopping_list_add_button">Add</string>
+    <string name="edit_shopping_list_overview_button">Overview</string>
+
+    <string name="main_edit_shopping_items_button">Edit shopping items</string>
+    <string name="main_title_text">Shopping list overview\ncurrent needed items:</string>
+
+    <!--List view-->
+    <string name="example_list_item_text">Example list item</string>
+    <string name="list_item_delete_button">Delete</string>
 </resources>
